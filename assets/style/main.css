@@ -1,0 +1,233 @@
+@font-face {
+  @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+  font-family: Roboto-bold;
+  src: url(../fonts/Roboto-Bold.ttf);
+}
+@font-face {
+  font-family: Roboto-regular;
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+:root {
+  /* ### COLORS ###*/
+  --primary-clr: 4 100% 67% ;
+  --body-bg: hsl(235 18% 26%);
+  --form-bg: hsl(0 0% 100%);
+  --accent-clr: hsl(234 29% 20%);
+  --btn-clr: hsl(0 0% 82%);
+  --border-clr: hsl(0, 0%, 82%);
+  --clr-error: 4 100% 67%;
+  --dark-slate-grey: hsl(234, 29%, 20%);
+  --charcoal-grey: hsl(235, 18%, 26%);
+  --grey: hsl(231, 7%, 60%);
+  --white: hsl(0, 0%, 100%);
+  /* ### FONTS ###*/
+  --ff: "Roboto", sans-serif;
+  --fw-bold: 700;
+  --fw-reg: 400;
+  --fs-100: clamp(2.2rem, 5vw, 3rem);
+  /* ### SPACING ###*/
+  --space-base: 1rem;
+  --space-half: .5rem;
+  --space-duoble: 2rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--accent-clr);
+  background: var(--body-bg);
+  min-height: 100vh;
+  display: grid;
+}
+
+@media (min-width: 45em) {
+  body {
+    place-items: center;
+  }
+}
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+}
+
+p,
+blockquote {
+  max-width: 45ch;
+}
+
+button,
+input,
+textarea {
+  border: 0;
+  outline-offset: 2px;
+  outline-width: 3px;
+  font: inherit;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ### UTILITIES  STYLE ### */
+/* Typographu */
+.fw-700 {
+  font-weight: 700;
+}
+
+/* UTILITIES */
+.flow > * + * {
+  margin-top: var(--flow-space, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.flex {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.box {
+  padding: var(--box-offset, 1rem);
+}
+
+/* ### Components  STYLE ###*/
+.section {
+  background: var(--form-bg);
+}
+
+.title {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1;
+}
+
+.section p {
+  max-width: 45ch;
+}
+
+.benefit-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.form-group {
+  --gap: .5rem;
+  margin-top: 1rem;
+}
+
+.label {
+  font-size: 0.85rem;
+  color: var(--accent-clr);
+}
+
+.input {
+  border: 1px solid var(--status-clr, var(--border-clr));
+  color: var(--status-clr, auto);
+  background-color: var(--status-bg, transparent);
+}
+
+.btn,
+.input {
+  padding: 1rem 1.75rem;
+  border-radius: 0.5rem;
+}
+
+.btn {
+  font-weight: 700;
+  background: var(--accent-clr);
+  color: var(--btn-clr);
+  display: inline-flex;
+  justify-content: center;
+}
+.btn:focus, .btn:hover {
+  background: linear-gradient(to right, rgb(255, 71, 71), tomato, rgb(255, 115, 0));
+}
+
+.error {
+  --status-clr: hsl(var(--primary-clr));
+  --status-bg: hsl(var(--primary-clr)/ .15);
+  position: relative;
+}
+
+.error::after {
+  content: "Valid email required";
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.85rem;
+  color: var(--status-clr);
+}
+
+/* ### Blocks  STYLE ###*/
+.section--form {
+  --gap: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+.section--success {
+  --gap: 3rem;
+  --flow-space: 2rem;
+  max-width: 30rem;
+  justify-self: center;
+}
+.section--success .btn {
+  align-self: end;
+}
+.section--success img {
+  align-self: end;
+}
+
+@media (min-width: 45em) {
+  .section {
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 2rem;
+    box-shadow: 0 12px 18px rgba(0, 0, 0, 0.3333333333);
+  }
+  .section--form {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 3rem;
+    padding-left: 2rem;
+  }
+  .section--success {
+    --flow-space: 1.5rem;
+    padding: 3rem;
+  }
+}
+.hide {
+  display: none;
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,133 @@
+@use 'reset' as *;
+
+
+/* ### UTILITIES  STYLE ### */
+
+/* Typographu */
+.fw-700 {
+    font-weight: 700;
+}
+
+/* UTILITIES */
+.flow > * + * {
+    margin-top: var(--flow-space,1rem);
+}
+.grid {
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+.flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+.box {
+    padding: var(--box-offset,1rem);
+}
+
+/* ### Components  STYLE ###*/
+.section {
+    background: var(--form-bg);
+}
+.title{
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1;
+}
+.section p{
+   max-width: 45ch;
+}
+
+.benefit-list li{
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.form-group {
+    --gap: .5rem;
+    margin-top: 1rem;
+}
+.label {
+    font-size: .85rem;
+    color: var(--accent-clr);
+}
+.input {
+    border: 1px solid var(--status-clr,var(--border-clr));
+    color: var(--status-clr,auto);
+    background-color: var(--status-bg,transparent);
+}
+.btn,
+.input {
+    padding: 1rem 1.75rem;
+    border-radius: .5rem;
+}
+.btn {
+    font-weight: 700;
+    background: var(--accent-clr);
+    color: var(--btn-clr);
+    display: inline-flex;
+    justify-content: center;
+    &:focus,
+    &:hover {
+        background: linear-gradient(to right, rgb(255, 71, 71) ,tomato, rgb(255, 115, 0));
+    }
+}
+
+.error {
+    --status-clr: hsl(var(--primary-clr));
+    --status-bg: hsl(var(--primary-clr)/ .15);
+
+    position: relative;
+}
+.error::after {
+    content: 'Valid email required';
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: .85rem;
+    color: var(--status-clr);
+}
+
+/* ### Blocks  STYLE ###*/
+.section--form {
+    --gap: 1.5rem;
+    padding-bottom: 2rem;
+}
+.section--success {
+    --gap: 3rem;
+    --flow-space: 2rem;
+    max-width: 30rem;
+    justify-self: center;
+    .btn{
+        align-self: end;
+    }
+    img {
+        align-self: end;
+    }
+}
+
+@media (min-width: 45em) {
+    .section {
+        padding: 1rem;
+        margin: 1rem;
+        border-radius: 2rem;
+        box-shadow: 0 12px 18px #0005;
+    }
+    .section--form {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        gap: 3rem;
+        padding-left: 2rem;
+    }
+    .section--success {
+        --flow-space: 1.5rem;
+        padding: 3rem;
+    }
+}
+
+
+
+.hide {
+    display: none;
+}
